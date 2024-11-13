@@ -1,0 +1,66 @@
+﻿@model Books.ViewModels.BookFormViewModel
+
+@{
+    ViewData["Title"] = "Edit";
+}
+
+<div class="container mt-5">
+    <h1 class="text-center mb-4">Edit Book</h1>
+    <hr class="mb-5" />
+
+    <form method="post" enctype="multipart/form-data" asp-action="Edit" class="shadow p-4 bg-light rounded">
+        <div class="row mb-3">
+            <div class="col-md-6 offset-md-3">
+                <div class="form-group">
+                    <label asp-for="Title" class="form-label">Title</label>
+                    <input type="text" asp-for="Title" id="title" class="form-control" />
+                    <span asp-validation-for="Title" class="text-danger"></span>
+                </div>
+            </div>
+        </div>
+
+        <div class="row mb-3">
+            <div class="col-md-6 offset-md-3">
+                <div class="form-group">
+                    <label asp-for="Description" class="form-label">Description</label>
+                    <textarea id="description" asp-for="Description" class="form-control"></textarea>
+                    <span asp-validation-for="Description" class="text-danger"></span>
+                </div>
+            </div>
+        </div>
+
+        <div class="row mb-3">
+            <div class="col-md-6 offset-md-3">
+                <div class="form-group">
+                    <label asp-for="Author" class="form-label">Author</label>
+                    <input type="text" asp-for="Author" id="author" class="form-control" />
+                    <span asp-validation-for="Author" class="text-danger"></span>
+                </div>
+            </div>
+        </div>
+
+        <div class="row mb-3">
+            <div class="col-md-6 offset-md-3">
+                <div class="form-group">
+                    <label asp-for="CategoryId" class="form-label">Category</label>
+                    <select id="category" asp-for="CategoryId" class="form-control" asp-items="@Model.Categories">
+                        <option value="">Select a category</option>
+                    </select>
+                    <span asp-validation-for="CategoryId" class="text-danger"></span>
+                </div>
+            </div>
+        </div>
+
+        <div class="row">
+            <div class="col-md-6 offset-md-3 text-center">
+                <button type="submit" class="btn btn-primary mt-3">Save</button>
+            </div>
+        </div>
+    </form>
+</div>
+
+<script src="https://code.jquery.com/jquery-3.6.0.min.js"></script>
+
+@section Scripts {
+    <partial name="_ValidationScriptsPartial" />
+}
